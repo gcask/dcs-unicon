@@ -1,0 +1,695 @@
+-- SPDX-License-Identifier: MIT
+--[[
+MIT License
+
+Copyright (c) 2022 gcask
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+--]]
+
+local current_y_offset = 10
+local next_y_offset = 40
+
+local function currentY()
+	return current_y_offset
+end
+
+local function nextY()
+	current_y_offset = next_y_offset
+	next_y_offset = next_y_offset + 30
+	return currentY()
+end
+
+dialog = {
+    ["children"] = {
+		-- Coordinates.
+		["e_Input"] = {
+			["params"] = {
+				["acceptDecimalPoint"] = false,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 245,
+					["x"] = 130,
+					["y"] = currentY(),
+				},
+				["enabled"] = true,
+				["multiline"] = false,
+				["numeric"] = false,
+				["password"] = false,
+				["readOnly"] = false,
+				["tabOrder"] = 0,
+				["text"] = "",
+				["textWrapping"] = true,
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "editBoxNew",
+				},
+			},
+			["type"] = "EditBox",
+		},
+        ["e_MGRS"] = {
+			["params"] = {
+				["acceptDecimalPoint"] = false,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 245,
+					["x"] = 130,
+					["y"] = nextY(),
+				},
+				["enabled"] = true,
+				["multiline"] = false,
+				["numeric"] = false,
+				["password"] = false,
+				["readOnly"] = true,
+				["tabOrder"] = 0,
+				["text"] = "",
+				["textWrapping"] = true,
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "editBoxNew",
+				},
+			},
+			["type"] = "EditBox",
+		},
+        ["s_MGRS"] = {
+			["params"] = {
+				["angle"] = 0,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 110,
+					["x"] = 10,
+					["y"] = currentY(),
+				},
+				["enabled"] = true,
+				["pivotPoint"] = {
+					["x"] = 0,
+					["y"] = 0,
+				},
+				["text"] = "$MGRS",
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "staticSkin",
+				},
+				["states"] = {
+					["released"] = {
+						[1] = {
+							["text"] = {
+								["horzAlign"] = {
+									["type"] = "max",
+								},
+							},
+						},
+					},
+				},
+			},
+			["type"] = "Static",
+		},
+		["e_UTM"] = {
+			["params"] = {
+				["acceptDecimalPoint"] = false,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 245,
+					["x"] = 130,
+					["y"] = nextY(),
+				},
+				["enabled"] = true,
+				["multiline"] = false,
+				["numeric"] = false,
+				["password"] = false,
+				["readOnly"] = true,
+				["tabOrder"] = 0,
+				["text"] = "",
+				["textWrapping"] = true,
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "editBoxNew",
+				},
+			},
+			["type"] = "EditBox",
+		},
+        ["s_UTM"] = {
+			["params"] = {
+				["angle"] = 0,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 110,
+					["x"] = 10,
+					["y"] = currentY(),
+				},
+				["enabled"] = true,
+				["pivotPoint"] = {
+					["x"] = 0,
+					["y"] = 0,
+				},
+				["text"] = "$UTM",
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "staticSkin",
+				},
+				["states"] = {
+					["released"] = {
+						[1] = {
+							["text"] = {
+								["horzAlign"] = {
+									["type"] = "max",
+								},
+							},
+						},
+					},
+				},
+			},
+			["type"] = "Static",
+		},
+        ["e_Decimal_Degrees"] = {
+			["params"] = {
+				["acceptDecimalPoint"] = false,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 245,
+					["x"] = 130,
+					["y"] = nextY(),
+				},
+				["enabled"] = true,
+				["multiline"] = false,
+				["numeric"] = false,
+				["password"] = false,
+				["readOnly"] = true,
+				["tabOrder"] = 0,
+				["text"] = "",
+				["textWrapping"] = true,
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "editBoxNew",
+				},
+			},
+			["type"] = "EditBox",
+		},
+        ["s_Decimal_Degrees"] = {
+			["params"] = {
+				["angle"] = 0,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 110,
+					["x"] = 10,
+					["y"] = currentY(),
+				},
+				["enabled"] = true,
+				["pivotPoint"] = {
+					["x"] = 0,
+					["y"] = 0,
+				},
+				["text"] = "$Decimal_Degrees",
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "staticSkin",
+				},
+				["states"] = {
+					["released"] = {
+						[1] = {
+							["text"] = {
+								["horzAlign"] = {
+									["type"] = "max",
+								},
+							},
+						},
+					},
+				},
+			},
+			["type"] = "Static",
+		},
+        ["e_Decimal_Minutes"] = {
+			["params"] = {
+				["acceptDecimalPoint"] = false,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 245,
+					["x"] = 130,
+					["y"] = nextY(),
+				},
+				["enabled"] = true,
+				["multiline"] = false,
+				["numeric"] = false,
+				["password"] = false,
+				["readOnly"] = true,
+				["tabOrder"] = 0,
+				["text"] = "",
+				["textWrapping"] = true,
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "editBoxNew",
+				},
+			},
+			["type"] = "EditBox",
+		},
+        ["s_Decimal_Minutes"] = {
+			["params"] = {
+				["angle"] = 0,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 110,
+					["x"] = 10,
+					["y"] = currentY(),
+				},
+				["enabled"] = true,
+				["pivotPoint"] = {
+					["x"] = 0,
+					["y"] = 0,
+				},
+				["text"] = "$Decimal_Minutes",
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "staticSkin",
+				},
+				["states"] = {
+					["released"] = {
+						[1] = {
+							["text"] = {
+								["horzAlign"] = {
+									["type"] = "max",
+								},
+							},
+						},
+					},
+				},
+			},
+			["type"] = "Static",
+		},
+        ["e_Degrees_Minutes_Seconds"] = {
+			["params"] = {
+				["acceptDecimalPoint"] = false,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 245,
+					["x"] = 130,
+					["y"] = nextY(),
+				},
+				["enabled"] = true,
+				["multiline"] = false,
+				["numeric"] = false,
+				["password"] = false,
+				["readOnly"] = true,
+				["tabOrder"] = 0,
+				["text"] = "",
+				["textWrapping"] = true,
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "editBoxNew",
+				},
+			},
+			["type"] = "EditBox",
+		},
+        ["s_Degrees_Minutes_Seconds"] = {
+			["params"] = {
+				["angle"] = 0,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 110,
+					["x"] = 10,
+					["y"] = currentY(),
+				},
+				["enabled"] = true,
+				["pivotPoint"] = {
+					["x"] = 0,
+					["y"] = 0,
+				},
+				["text"] = "$Degrees_Minutes_Seconds",
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "staticSkin",
+				},
+				["states"] = {
+					["released"] = {
+						[1] = {
+							["text"] = {
+								["horzAlign"] = {
+									["type"] = "max",
+								},
+							},
+						},
+					},
+				},
+			},
+			["type"] = "Static",
+		},
+
+		-- Imperial/Metric
+		-- Knots/KPH
+		["e_Speed_Knots"] = {
+			["params"] = {
+				["acceptDecimalPoint"] = true,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 50,
+					["x"] = 10,
+					["y"] = nextY(),
+				},
+				["enabled"] = true,
+				["multiline"] = false,
+				["numeric"] = true,
+				["password"] = false,
+				["readOnly"] = false,
+				["tabOrder"] = 0,
+				["text"] = "",
+				["textWrapping"] = true,
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "editBoxNew",
+				},
+			},
+			["type"] = "EditBox",
+		},
+        ["s_Speed_Knots"] = {
+			["params"] = {
+				["angle"] = 0,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 50,
+					["x"] = 1*(50+10)+10,
+					["y"] = currentY(),
+				},
+				["enabled"] = true,
+				["pivotPoint"] = {
+					["x"] = 0,
+					["y"] = 0,
+				},
+				["text"] = "$Knots",
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "staticSkin",
+				},
+				["states"] = {
+					["released"] = {
+						[1] = {
+							["text"] = {
+								["horzAlign"] = {
+									["type"] = "min",
+								},
+							},
+						},
+					},
+				},
+			},
+			["type"] = "Static",
+		},
+		["e_Speed_KPH"] = {
+			["params"] = {
+				["acceptDecimalPoint"] = true,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 50,
+					["x"] = 2*(50+10)+10,
+					["y"] = currentY(),
+				},
+				["enabled"] = true,
+				["multiline"] = false,
+				["numeric"] = true,
+				["password"] = false,
+				["readOnly"] = false,
+				["tabOrder"] = 0,
+				["text"] = "",
+				["textWrapping"] = true,
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "editBoxNew",
+				},
+			},
+			["type"] = "EditBox",
+		},
+        ["s_Speed_KPH"] = {
+			["params"] = {
+				["angle"] = 0,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 50,
+					["x"] = 3*(50+10)+10,
+					["y"] = currentY(),
+				},
+				["enabled"] = true,
+				["pivotPoint"] = {
+					["x"] = 0,
+					["y"] = 0,
+				},
+				["text"] = "$KPH",
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "staticSkin",
+				},
+				["states"] = {
+					["released"] = {
+						[1] = {
+							["text"] = {
+								["horzAlign"] = {
+									["type"] = "min",
+								},
+							},
+						},
+					},
+				},
+			},
+			["type"] = "Static",
+		},
+
+		-- feet/meters
+		["e_Distance_Feet"] = {
+			["params"] = {
+				["acceptDecimalPoint"] = true,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 50,
+					["x"] = 10,
+					["y"] = nextY(),
+				},
+				["enabled"] = true,
+				["multiline"] = false,
+				["numeric"] = true,
+				["password"] = false,
+				["readOnly"] = false,
+				["tabOrder"] = 0,
+				["text"] = "",
+				["textWrapping"] = true,
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "editBoxNew",
+				},
+			},
+			["type"] = "EditBox",
+		},
+        ["s_Distance_Feet"] = {
+			["params"] = {
+				["angle"] = 0,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 50,
+					["x"] = 1*(50+10)+10,
+					["y"] = currentY(),
+				},
+				["enabled"] = true,
+				["pivotPoint"] = {
+					["x"] = 0,
+					["y"] = 0,
+				},
+				["text"] = "$Feet",
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "staticSkin",
+				},
+				["states"] = {
+					["released"] = {
+						[1] = {
+							["text"] = {
+								["horzAlign"] = {
+									["type"] = "min",
+								},
+							},
+						},
+					},
+				},
+			},
+			["type"] = "Static",
+		},
+		["e_Distance_Meters"] = {
+			["params"] = {
+				["acceptDecimalPoint"] = true,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 50,
+					["x"] = 2*(50+10)+10,
+					["y"] = currentY(),
+				},
+				["enabled"] = true,
+				["multiline"] = false,
+				["numeric"] = true,
+				["password"] = false,
+				["readOnly"] = false,
+				["tabOrder"] = 0,
+				["text"] = "",
+				["textWrapping"] = true,
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "editBoxNew",
+				},
+			},
+			["type"] = "EditBox",
+		},
+        ["s_Distance_Meters"] = {
+			["params"] = {
+				["angle"] = 0,
+				["bounds"] = {
+					["h"] = 20,
+					["w"] = 50,
+					["x"] = 3*(50+10)+10,
+					["y"] = currentY(),
+				},
+				["enabled"] = true,
+				["pivotPoint"] = {
+					["x"] = 0,
+					["y"] = 0,
+				},
+				["text"] = "$Meters",
+				["tooltip"] = "",
+				["visible"] = true,
+				["zindex"] = 0,
+			},
+			["skin"] = {
+				["params"] = {
+					["name"] = "staticSkin",
+				},
+				["states"] = {
+					["released"] = {
+						[1] = {
+							["text"] = {
+								["horzAlign"] = {
+									["type"] = "min",
+								},
+							},
+						},
+					},
+				},
+			},
+			["type"] = "Static",
+		},
+    },
+    ["params"] = {
+        ["bounds"] = {
+            [1] = {
+                ["h"] = nextY(),
+                ["w"] = 390,
+                ["x"] = 0,
+                ["y"] = 0,
+            },
+        },
+        ["draggable"] = true,
+        ["enabled"] = true,
+        ["hasCursor"] = true,
+        ["lockFlow"] = false,
+        ["modal"] = false,
+        ["offscreen"] = false,
+        ["resizable"] = false,
+        ["zOrder"] = 120,
+        ["text"] =  "UNIts.CONverter",
+    },
+    ["skin"] = {
+        ["params"] = {
+            ["name"] = "windowSkin",
+        },
+        ["states"] = {
+            ["released"] = {
+                [1] = {
+                    ["bkg"] = {
+                        ["center_center"] = "0x00000066",
+                    },
+                },
+            },
+        },
+    },
+    ["type"] = "Window",
+}
