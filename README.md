@@ -5,12 +5,12 @@ In-Game, In-Flight DCS UI to convert coordinates across different conventions.
 
 From DMS (Decimal Minutes Seconds)
 
-![DMS](./main/docs/dms.png "DMS")
+![DMS](./docs/dms.png "DMS")
 
 From (partial) MGRS
 
-![MGRS](./main/docs/mgrs.png "MGRS")
-![Partial MGRS](./main/docs/partial-mgrs.png "Partial MGRS")
+![MGRS](./docs/mgrs.png "MGRS")
+![Partial MGRS](./docs/partial-mgrs.png "Partial MGRS")
 
 Installation
 ------------
