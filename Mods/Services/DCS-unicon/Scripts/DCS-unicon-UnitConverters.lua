@@ -157,7 +157,7 @@ end
 -- Coordinate parsers.
 local function MGRSToTerrainXY(mgrs)
     -- Change MGRS to a string.
-    local mgrsString = string.format("%d %s %s %d %d",
+    local mgrsString = string.format("%d %s %s %05d %05d",
         tonumber(mgrs.UTMZone:sub(1, 2)),
         mgrs.UTMZone:sub(3, 3),
         mgrs.MGRSDigraph,
@@ -248,6 +248,14 @@ function converters.coords.parsers.decodeMGRS(input)
         Easting = tonumber(easting_and_northing:sub(1, easting_and_northing_digits)),
         Northing = tonumber(easting_and_northing:sub(easting_and_northing_digits + 1, easting_and_northing_digits + 1 + easting_and_northing_digits)),
     }
+
+    -- Make sure our digits count is always 5 digits.
+    -- If we have less, multiply by ten until we have enough.
+    while easting_and_northing_digits < 5 do
+        mgrs.Easting = mgrs.Easting * 10
+        mgrs.Northing = mgrs.Northing * 10
+        easting_and_northing_digits = easting_and_northing_digits + 1
+    end
 
    return MGRSToTerrainXY(mgrs)
 end
