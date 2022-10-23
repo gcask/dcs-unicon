@@ -273,7 +273,9 @@ function converters.coords.parsers.decodeUTM(input)
 
         -- Check for a partial UTM zone.
         -- Easting should be 5+ digits
-        local easting, northing = input:match("^(%d%d%d%d%d+) (%d+)$")
+        easting, northing = input:match("^(%d%d%d%d%d+) (%d+)$")
+        easting = tonumber(easting)
+        northing = tonumber(northing)
         if easting == nil or northing == nil then
             return nil
         end
