@@ -406,5 +406,11 @@ function converters.coords.parsers.decodeLatLon(input)
     return Terrain.convertLatLonToMeters(lat, lon)
 end
 
+-- Setup parsers priorities (array).
+converters.coords.parsers[1] = converters.coords.parsers.decodeMGRS
+converters.coords.parsers[2] = converters.coords.parsers.decodeUTM
+converters.coords.parsers[3] = converters.coords.parsers.decodeDMS
+converters.coords.parsers[4] = converters.coords.parsers.decodeDDM
+converters.coords.parsers[5] = converters.coords.parsers.decodeLatLon
 
 return converters

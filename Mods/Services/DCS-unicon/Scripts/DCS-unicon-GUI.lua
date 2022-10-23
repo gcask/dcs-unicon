@@ -145,7 +145,7 @@ end
 -- Try to interpret the string as various formats.
 -- input is prefiltered with whitespaces stripped and normalized.
 function Dialog:tryConvert(input)
-    for _, parser in pairs(converters.coords.parsers) do
+    for _, parser in ipairs(converters.coords.parsers) do
         local x, y = parser(input)
         if x ~= nil then
             self:updateCoordinates(x, y)
