@@ -182,10 +182,10 @@ local function buildDMSMatcherWithNormalizedNeedle(input, wants_seconds)
    -- (both at front, or both at end)
    -- Spacing characters may include the degree/minutes/seconds symbols.
 
-   -- Enforce single space after special symbols.
-   -- Enforce no spaces around degree/minutes/seconds symbols.
-   -- replace degree symbol with letter d.
-   local needle = input:gsub("°", "d"):gsub("%s*([d'\"])%s*", "%1"):gsub("%s*([NSEWnsew])%s*", " %1 ")
+   local needle = input:gsub("°", "d") -- replace degree symbol with letter d.
+                    :gsub(",", " ") -- replace comma with space.
+                    :gsub("%s*([d'\"])%s*", "%1") -- Enforce no spaces around degree/minutes/seconds symbols.
+                    :gsub("%s*([NSEWnsew])%s*", " %1 ") -- Enforce single space after special symbols.
    local coord_matcher = "([^%sd]+)[ d]([^%s']+)"
    if wants_seconds then
        coord_matcher = coord_matcher.."[ ']([^%s\"]+)\"?"
