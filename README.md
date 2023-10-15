@@ -3,7 +3,7 @@ DCS UNIts.CONverter
 
 In-Game, In-Flight DCS UI to convert coordinates across different conventions.
 
-Scratchpad extension (scratchpad > 0.7.0)
+Scratchpad extension (scratchpad >= 0.7.0)
 -----------------------------------------
 
 ### Installation
@@ -16,7 +16,7 @@ Scratchpad extension (scratchpad > 0.7.0)
 * Enter coordinates.
 * Hit COORDS, and see it get translated in various formats.
 
-![Scratchpad Demo](./docs/scratchpad-demo.mp4 "Scratchpad Demo")
+![Scratchpad Demo](./docs/scratchpad-demo.gif "Scratchpad Demo")
 
 
 Standalone UI
